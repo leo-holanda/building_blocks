@@ -1,3 +1,25 @@
+def get_numbers()
+    numbers = []
+    puts "Enter n to end"
+
+    while(true)
+        print "Enter a number: "
+        number_input = gets.chomp
+
+        if number_input == "n"
+            break
+        end
+        
+        until /\A[-+]?\d+\z/.match(number_input) do
+            print "Enter an integer to continue: "
+            number_input = gets.chomp
+        end   
+
+        numbers.push(number_input.to_i) 
+    end
+    return numbers
+end
+
 def stock_picker(stock_prices)
     buy_index = nil
     sell_index = nil
@@ -20,4 +42,6 @@ def stock_picker(stock_prices)
     puts("[#{buy_index},#{sell_index}]")
 end
 
-stock_picker([6,8,3,2,5,6,9,2,7])
+
+numbers = get_numbers()
+stock_picker(numbers)
