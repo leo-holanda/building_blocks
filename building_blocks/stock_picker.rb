@@ -20,4 +20,4 @@ def stock_picker(stock_prices)
     puts("[#{buy_index},#{sell_index}]")
 end
 
-stock_picker([17,3,6,9,15,8,6,1,10])
+stock_picker([6,8,3,2,5,6,9,2,7])
