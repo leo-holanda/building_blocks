@@ -1,13 +1,23 @@
-def compare(string, word)
-    return string.include?(word)
+def compare(word, key)
+    word.downcase!
+    key.downcase!
+
+    if word.index(key).nil?
+        return false
+    end
+
+    return true
 end
 
 def check_substrings(string, dictionary)
     substrings = {}
-    for word in dictionary
-        if compare(string, word) == true
-            new_value = (substrings[word].to_i + 1).to_s
-            substrings[word] = new_value
+    string = string.split()
+
+    for word in string
+        for key in dictionary
+            if compare(word, key) == true
+                substrings[key] = (substrings[key].to_i + 1).to_s 
+            end
         end
     end
 
@@ -15,4 +25,4 @@ def check_substrings(string, dictionary)
 end
 
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-puts check_substrings("below", dictionary)
+puts check_substrings("Howdy partner, sit down! How's it going?", dictionary)
