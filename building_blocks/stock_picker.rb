@@ -10,7 +10,7 @@ def get_numbers()
             break
         end
         
-        until /\A[-+]?\d+\z/.match(number_input) do
+        until (/\A[-+]?\d+\z/).match(number_input) do
             print "Enter an integer to continue: "
             number_input = gets.chomp
         end   

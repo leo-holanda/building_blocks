@@ -1,8 +1,21 @@
+def get_dictionary()
+    words = []
+    user_input = ""
+    puts "Enter -1 to end"
+    until user_input == "-1" do
+        print "Enter a new key: "
+        user_input = gets.chomp
+        words.push(user_input)
+    end
+    words.pop
+    return words
+end
+
 def compare(word, key)
     word.downcase!
     key.downcase!
 
-    if word.index(key).nil?
+    if key.index(word).nil?
         return false
     end
 
@@ -11,11 +24,11 @@ end
 
 def check_substrings(string, dictionary)
     substrings = {}
-    string = string.split()
+    string = string.split
 
-    for word in string
-        for key in dictionary
-            if compare(word, key) == true
+    for key in dictionary
+        for word in string
+            if compare(key, word) == true
                 substrings[key] = (substrings[key].to_i + 1).to_s 
             end
         end
@@ -24,5 +37,12 @@ def check_substrings(string, dictionary)
     return substrings
 end
 
-dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-puts check_substrings("Howdy partner, sit down! How's it going?", dictionary)
+dictionary = get_dictionary
+print "Your dictionary: "
+print dictionary
+puts "\n\n"
+print "Enter your statement: "
+user_string = gets.chomp
+puts "\n"
+puts "Substrings found in your statement"
+puts check_substrings(user_string, dictionary)
