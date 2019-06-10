@@ -47,10 +47,11 @@ def bubble_sort(numberArray)
 end
 
 numbers_input = get_numbers
-puts "Number's list"
+puts "\nNumber's list"
 print numbers_input 
 puts ""
+
 bubble_sort(numbers_input)
-puts "Sorted number's list"
+puts "\nSorted number's list"
 print numbers_input 
 puts ""
