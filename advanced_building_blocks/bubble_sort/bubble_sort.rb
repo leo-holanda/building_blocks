@@ -1,30 +1,10 @@
+load 'input_functions.rb'
+
 class Array
     def swap!(a,b)
         self[a], self[b] = self[b], self[a]
     self
     end
-end
-
-def get_numbers()
-    numbers = []
-    puts "Enter n to end"
-
-    while(true)
-        print "Enter a number: "
-        number_input = gets.chomp
-
-        if number_input == "n"
-            break
-        end
-        
-        until (/\A[-+]?\d+\z/).match(number_input) do
-            print "Enter an integer to continue: "
-            number_input = gets.chomp
-        end   
-
-        numbers.push(number_input.to_i) 
-    end
-    return numbers
 end
 
 def bubble_sort(numberArray)

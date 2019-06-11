@@ -1,21 +1,10 @@
+load 'input_functions.rb'
+
 class Array
     def swap!(a,b)
         self[a], self[b] = self[b], self[a]
     self
     end
-end
-
-def get_words()
-    wordList = []
-    user_input = ""
-    puts "Enter -1 to end"
-    until user_input == "-1" do
-        print "Enter a new key: "
-        user_input = gets.chomp
-        wordList.push(user_input)
-    end
-    wordList.pop
-    return wordList
 end
 
 def bubble_sort_by(wordList)
