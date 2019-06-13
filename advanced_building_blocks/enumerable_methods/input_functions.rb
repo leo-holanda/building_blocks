@@ -32,3 +32,15 @@ def get_numbers()
     end
     return numbers
 end
+
+def get_single_number()
+        print "Enter the number you want to count to: "
+        number_input = gets.chomp
+        
+        until (/\A[-+]?\d+\z/).match(number_input) do
+            print "Enter an integer to continue: "
+            number_input = gets.chomp
+        end   
+
+    return number_input.to_i
+end
